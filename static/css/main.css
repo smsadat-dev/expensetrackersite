@@ -1,0 +1,115 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+h2 {
+    text-align: center;
+}
+
+main {
+    max-width: 500px;
+    margin: 1rem auto;
+    padding: 1rem;
+    box-shadow: 0 2px 3px rgba(26, 25, 25, 0.7);
+    background-color: rgb(255, 255, 255);
+}
+
+body {
+    padding: 2rem;
+    font-family: sans-serif;
+    background-color: rgb(255, 255, 255);
+    color: rgb(18, 18, 18);
+}
+
+header {
+    padding-left: 87px;
+    background-color: rgb(220, 237, 255);
+    color: rgb(42, 43, 44);
+    text-align: center;
+    border-radius: 5px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+header div {
+    padding: 5px;
+}
+
+header div :first-child {
+    flex-basis: 100%;
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+header div :nth-child(n + 2) {
+    flex-basis: 50%;
+    font-size: 1.25rem;
+    font-weight: 500;
+}
+
+h3 {
+    margin-top: 10px;
+    margin-bottom: 4px;
+}
+
+form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+form input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid rgb(231, 223, 223);
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+
+form div:first-child {
+    flex-basis: 100%;
+}
+
+form div:nth-child(n + 2) {
+    flex-basis: calc(50% - 5px);
+}
+
+ul {
+    list-style: none;
+}
+
+ul li {
+    padding: 3px;
+    display:flex;
+    justify-content: space-between;
+}
+
+#status {
+    text-align: center;
+    margin-bottom: 0.5rem;
+    align-items: flex-start;
+    padding: 5px 10px;
+    position: relative;
+}
+
+#transactionlist {
+    padding: 5px;
+    border: none;
+    background-color: rgb(221, 227, 233);
+    border-top: 1px solid rgba(34, 34, 34, 0.754);
+}
+
+button {
+    padding: 9px;
+    background-color: aliceblue;
+    border: 1px solid rgb(55, 55, 55);
+    border-radius: 5px;
+    color: black;
+    font-size: 14px;
+}
+
+.submit_btn {
+    background-color: rgb(107, 152, 235);
+}

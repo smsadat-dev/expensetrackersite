@@ -1,0 +1,77 @@
+{% extends "layout.html" %}
+{% load static %}
+
+{% block title %}
+    Expense tracker
+{% endblock title %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<header>
+    <div>
+        <h5>TOTAL BALANCE</h5>
+        <span id="balance">${{ total_balance|floatformat:3 }}</span>
+    </div>
+    <div>
+        <h4>Income</h4>
+        <span id="income">${{total_income|floatformat:3}}</span>
+    </div>
+    <div>
+        <h4>Expense</h4>
+        <span id="expense">${{total_expense|floatformat:3}}</span>
+    </div>
+</header>
+
+<section>
+    <h3>Transactions</h3>
+    <div id="status">
+        {% for expense in list %}
+        <ul id="transactionlist">
+            <li> {{ expense.activity }} &nbsp; ${{ expense.value }} 
+                <form action="{% url 'base:delete' expense.id %}" method="post" class="delete_button">
+                    {% csrf_token %}
+                    <button type="submit">DELETE</button>
+                </form>
+            </li>
+            <li>{{ expense.date }}</li>
+        </ul>
+        {% empty %}
+                <p>No expense record here</p>
+        {% endfor %}
+    </div>
+</section>
+
+<section>
+    <h3>Add Transaction</h3>
+    <form id="transactionform" method="POST">
+        {% csrf_token %}
+        <p>
+            <div class="transaction_type_choice">
+                <label for="id_transaction_type"> Transaction type: </label>
+                <select name="transaction_type" id="id_transaction_type">
+                    <option value="income">Income</option>
+                    <option value="expense">Expense</option>
+                </select>
+            </div>
+        </p>
+        <div class="activity_name"> 
+            <label for="id_activity"> Activity: </label>
+            <input type="text" name="activity" id="id_activity">
+        </div>
+        <div class="value_amount">
+            <label for="id_value"> Value: </label>
+            <input type="number" name="value" id="id_value">
+        </div>    
+        <div class="activity_date">
+            <label for="id_date"> Date: </label>
+            <input type="date" name="date" id="id_date">
+        </div>
+        <input type="submit" value="SUBMIT" class="submit_btn">
+    </form>
+</section>
+
+{% endblock %}
